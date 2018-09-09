@@ -1,0 +1,14 @@
+@import "variables";
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/all";
+@import "~bulma/sass/base/all";
+@import "~bulma/sass/grid/columns";
+@import "~bulma/sass/elements/container";
+@import "~bulma/sass/elements/button";
+@import "~bulma/sass/elements/form";
+@import "~bulma/sass/elements/table";
+@import "~bulma/sass/components/navbar";
+
+html, body {
+  padding-top: 52px;
+}

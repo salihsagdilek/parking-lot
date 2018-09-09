@@ -13,8 +13,8 @@ const SETTINGS_KEY: string = process.env.VUE_APP_PL_SETTINGS_KEY || '';
 const SLOTS_KEY: string = process.env.VUE_APP_PL_SLOTS_KEY || '';
 
 
-const storageSettingsData: object = JSON.parse((window.localStorage.getItem(SETTINGS_KEY) || ''));
-const storageSlotsData: [] = JSON.parse((window.localStorage.getItem(SLOTS_KEY) || ''));
+const storageSettingsData: object = JSON.parse((window.localStorage.getItem(SETTINGS_KEY) || '{}'));
+const storageSlotsData: [] = JSON.parse((window.localStorage.getItem(SLOTS_KEY) || '[]'));
 
 export const state: ParkingLotState = {
   slots: storageSlotsData,

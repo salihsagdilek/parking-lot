@@ -35,10 +35,10 @@
             All slot Full
         </p>
         <p class="help is-danger has-text-right" v-if="errors.has('color')">
-            color must be required
+            color is required
         </p>
         <p class="help is-danger has-text-right" v-if="errors.has('plate')">
-            plate must be required
+            plate is required
         </p>
     </form>
 </template>

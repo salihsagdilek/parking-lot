@@ -1,6 +1,6 @@
 <template>
     <div class="settings container">
-        <form @submit.prevent="saveSettings">
+        <form @submit.prevent="validateAndsaveSettings">
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
                     <label class="label">X Slots</label>
@@ -8,11 +8,15 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="e.g. Partnership opportunity"
+                            <input class="input" name="xaxis" type="text" placeholder="e.g. Partnership opportunity"
+                                   v-validate="'required'"
                                    v-model="settings.x">
                         </div>
                         <p class="help is-info">
                             Please enter comma space, etc: A,B,C,D
+                        </p>
+                        <p class="help is-danger" v-if="errors.has('xaxis')">
+                            x axis required
                         </p>
                     </div>
                 </div>
@@ -24,11 +28,15 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="e.g. Partnership opportunity"
+                            <input class="input" name="yaxis" type="text" placeholder="e.g. Partnership opportunity"
+                                   v-validate="'required'"
                                    v-model="settings.y">
                         </div>
                         <p class="help is-info">
                             Please enter comma space, etc: 1,2,3,4,5,6,7,8,9,10
+                        </p>
+                        <p class="help is-danger" v-if="errors.has('yaxis')">
+                           y axis required
                         </p>
                     </div>
                 </div>
@@ -40,9 +48,13 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" placeholder="e.g. Partnership opportunity"
+                            <input class="input" name="lotname" type="text" placeholder="e.g. Partnership opportunity"
+                                   v-validate="'required'"
                                    v-model="settings.name">
                         </div>
+                        <p class="help is-danger" v-if="errors.has('lotname')">
+                            lot name required
+                        </p>
                     </div>
                 </div>
             </div>
@@ -82,10 +94,15 @@
       y: '',
     };
 
-    public saveSettings() {
-      this.parkingLotSaveSettings(SettingsTranformer.send(this.settings))
-        .then((response: any) => {
-          this.$router.push({name: 'home'});
+    public validateAndsaveSettings() {
+      this.$validator.validateAll()
+        .then((response: boolean) => {
+          if (response) {
+            this.parkingLotSaveSettings(SettingsTranformer.send(this.settings))
+              .then((response: any) => {
+                this.$router.push({name: 'home'});
+              });
+          }
         });
     }
 

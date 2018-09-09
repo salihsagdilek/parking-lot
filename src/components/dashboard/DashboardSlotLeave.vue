@@ -25,7 +25,7 @@
             All slot Empty
         </p>
         <p class="help is-danger has-text-right" v-if="errors.has('selectedSlot')">
-            slot must be required
+            slot is required
         </p>
     </form>
 </template>

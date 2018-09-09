@@ -13,7 +13,7 @@ Vue.use(VeeValidate, {
     touched: 'touched',
     untouched: 'untouched',
     valid: 'is-success',
-    invalid: 'is-warning',
+    invalid: 'is-danger',
     pristine: 'pristine',
     dirty: 'dirty',
   },

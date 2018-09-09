@@ -12,3 +12,12 @@
 html, body {
   padding-top: 52px;
 }
+
+select {
+  &.is-danger {
+    border-color: $danger
+  }
+  &.is-success {
+    border-color: $success
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="leaveSlot">
+    <form @submit.prevent="validateAndleaveSlot">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">Leave</label>
@@ -8,7 +8,8 @@
                 <div class="field has-addons">
                     <div class="control is-expanded">
                         <div class="select is-fullwidth">
-                            <select name="selectedSlot" v-model="selectedSlot" :disabled="allSlotEmpty">
+                            <select name="selectedSlot" v-validate="'required'" v-model="selectedSlot"
+                                    :disabled="allSlotEmpty">
                                 <option :value="slot" v-for="slot in fullSlots">{{slot.vehicle.plate}}</option>
                             </select>
                         </div>
@@ -22,6 +23,9 @@
         </div>
         <p class="help is-danger has-text-right" v-if="allSlotEmpty">
             All slot Empty
+        </p>
+        <p class="help is-danger has-text-right" v-if="errors.has('selectedSlot')">
+            slot must be required
         </p>
     </form>
 </template>
@@ -42,8 +46,14 @@
 
     public selectedSlot: null | Slot = null;
 
-    public leaveSlot() {
-      this.parkingLotSlotLeave(this.selectedSlot);
+    public validateAndleaveSlot() {
+      this.$validator.validateAll()
+        .then((response: boolean) => {
+          if (response) {
+            this.parkingLotSlotLeave(this.selectedSlot);
+            this.selectedSlot = this.fullSlots[0]
+          }
+        });
     }
 
     get allSlotEmpty() {

@@ -8,7 +8,8 @@
                 <div class="field has-addons">
                     <p class="control">
                 <span class="select">
-                  <select v-model="vehicle.color" :disabled="emptySlotNotAvailable">
+                  <select v-model="vehicle.color" name="color" :disabled="emptySlotNotAvailable"
+                          v-validate="'required'">
                       <option value="">Color</option>
                       <option value="blue">Blue</option>
                       <option value="red">Red</option>
@@ -19,7 +20,8 @@
                 </span>
                     </p>
                     <p class="control is-expanded">
-                        <input class="input" type="text" placeholder="Plate" v-model="vehicle.plate"
+                        <input class="input" type="text" name="plate" placeholder="Plate" v-model="vehicle.plate"
+                               v-validate="'required'"
                                :disabled="emptySlotNotAvailable">
                     </p>
                     <p class="control">
@@ -31,6 +33,12 @@
         </div>
         <p class="help is-danger has-text-right" v-if="emptySlotNotAvailable">
             All slot Full
+        </p>
+        <p class="help is-danger has-text-right" v-if="errors.has('color')">
+            color must be required
+        </p>
+        <p class="help is-danger has-text-right" v-if="errors.has('plate')">
+            plate must be required
         </p>
     </form>
 </template>
@@ -57,12 +65,16 @@
     }
 
     public validateAndEntranceVehicle() {
-      this.slotEntrance(this.vehicle)
-        .catch((err: string) => {
-          alert(err);
+      this.$validator.validateAll()
+        .then((response: boolean) => {
+          if (response) {
+            this.slotEntrance(this.vehicle)
+              .catch((err: string) => {
+                alert(err);
+              });
+          }
         });
     }
-
   }
 </script>
 

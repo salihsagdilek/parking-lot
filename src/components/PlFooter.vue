@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-  import './PlFooter.scss';
   import {Component, Vue} from 'vue-property-decorator';
 
   @Component({
@@ -15,6 +14,4 @@
   }
 </script>
 
-<style scoped>
-
-</style>
+<style lang="scss" src="./PlFooter.scss"></style>

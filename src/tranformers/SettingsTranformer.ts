@@ -25,8 +25,8 @@ export class SettingsTranformer extends Transformer {
   public static send(settings: SendSettings) {
     return {
       name: settings.name,
-      x: settings.x.replace(/\s/gi, '').split(',').filter((s) => s),
-      y: settings.y.replace(/\s/gi, '').split(',').filter((s) => s),
+      x: [...new Set(settings.x.replace(/\s/gi, '').split(',').filter((s) => s))],
+      y: [... new Set(settings.y.replace(/\s/gi, '').split(',').filter((s) => s))],
     };
   }
 }

@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import {Component, Vue, Prop} from 'vue-property-decorator';
-  import {Slot} from '../../../store/modules/parking-lot/types';
+  import {Slot} from '@/store/modules/parking-lot/types';
 
   @Component({
     name: 'DashboardEmptyTableRow',

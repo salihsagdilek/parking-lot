@@ -77,7 +77,7 @@
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
   import {namespace} from 'vuex-class';
-  import {SettingsTranformer} from '../tranformers/SettingsTranformer';
+  import {SettingsTranformer} from '@/tranformers/SettingsTranformer';
 
   const parkingLot = namespace('parkingLot');
 

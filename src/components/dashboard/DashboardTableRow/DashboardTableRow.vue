@@ -6,7 +6,7 @@
   import {Component, Vue, Prop} from 'vue-property-decorator';
   import DashboardEmptyTableRow from './DashboardEmptyTableRow.vue';
   import DashboardFullTableRow from './DashboardFullTableRow.vue';
-  import {Slot} from '../../../store/modules/parking-lot/types';
+  import {Slot} from '@/store/modules/parking-lot/types';
 
   @Component({
     name: 'DashboardTableRow',

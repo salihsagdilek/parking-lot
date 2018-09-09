@@ -27,7 +27,7 @@
 <script lang="ts">
   import {Component, Vue, Prop} from 'vue-property-decorator';
   import DashboardTableRow from '@/components/dashboard/DashboardTableRow/DashboardTableRow.vue';
-  import {Slot} from '../../store/modules/parking-lot/types';
+  import {Slot} from '@/store/modules/parking-lot/types';
 
   @Component({
     name: 'DashboardTable',

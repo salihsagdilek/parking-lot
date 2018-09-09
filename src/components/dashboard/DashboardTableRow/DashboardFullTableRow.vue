@@ -13,7 +13,7 @@
   import {Component, Vue, Prop} from 'vue-property-decorator';
   import dateFormat from 'date-fns/format';
   import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-  import {FullSlot} from '../../../store/modules/parking-lot/types';
+  import {FullSlot} from '@/store/modules/parking-lot/types';
 
   @Component({
     name: 'DashboardFullTableRow',

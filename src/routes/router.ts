@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '@/views/Home.vue';
 
-const Settings = () => import('../views/Settings.vue');
+const Settings = () => import('@/views/Settings.vue');
 
 
-import store from '../store/store';
+import store from '@/store/store';
 
 Vue.use(Router);
 

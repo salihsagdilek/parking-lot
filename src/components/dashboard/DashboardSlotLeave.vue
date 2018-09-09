@@ -51,7 +51,7 @@
         .then((response: boolean) => {
           if (response) {
             this.parkingLotSlotLeave(this.selectedSlot);
-            this.selectedSlot = this.fullSlots[0]
+            this.selectedSlot = this.fullSlots[0];
           }
         });
     }

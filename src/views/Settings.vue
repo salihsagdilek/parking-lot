@@ -99,7 +99,7 @@
         .then((response: boolean) => {
           if (response) {
             this.parkingLotSaveSettings(SettingsTranformer.send(this.settings))
-              .then((response: any) => {
+              .then(() => {
                 this.$router.push({name: 'home'});
               });
           }
